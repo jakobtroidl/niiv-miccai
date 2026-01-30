@@ -1,17 +1,8 @@
 import torch
-from torch import nn
+import torch.nn as nn
 from niiv.feature_grid import FeatureGrid
 from niiv.encoders.edsr_2d import EDSR2D
 from niiv.decoder.mlp import MLP
-from niiv.encoders import rdn
-from niiv.encoders import swinir
-from niiv.decoder import inr
-from niiv.decoder.field_siren import FieldSiren
-
-
-
-import torch
-import torch.nn as nn
 
 class WindowAttention(nn.Module):
     def __init__(self, dim, window_size, num_heads, dropout=0.0):
@@ -115,7 +106,6 @@ class Decoder(nn.Module):
         ])
 
         self.queries = torch.nn.Parameter(torch.randn(1, output_dim**2, dim))
-        # self.proj = nn.Linear(dim + 8, 1)
         self.proj = nn.Linear(dim, 1)
 
 
@@ -153,10 +143,7 @@ class NIIV(nn.Module):
         model_in = self.grid.n_out(n_features) 
 
         # trainable parameters
-        # self.encoder = rdn.make_rdn()
-        # self.encoder = swinir.make_swinir()
         self.decoder = MLP(in_dim=model_in, out_dim=out_features, n_neurons=n_neurons, n_hidden=n_layers)
-        # self.decoder = Decoder(n_features)
 
     def forward(self, image, coords):
         latent_grid = self.encoder(image)
