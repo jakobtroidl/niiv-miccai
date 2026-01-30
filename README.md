@@ -138,4 +138,7 @@ This implementation builds upon code from the following repositories:
 - [LIIF](https://github.com/yinboc/liif)
 - [VINR](https://github.com/Picsart-AI-Research/VideoINR-Continuous-Space-Time-Super-Resolution)
 
-We thank the authors for making their code publicly available. Claude Code only polished the repository for release. 
+We thank the authors for making their code publicly available. 
+
+## Disclaimer
+Claude Code was only used to polish the repository for release. It was not used for ideating or running experiments. 
