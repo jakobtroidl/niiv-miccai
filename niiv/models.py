@@ -120,6 +120,16 @@ class Decoder(nn.Module):
 
 
 class NIIV(nn.Module):
+    """Neural Implicit Isotropic Volume Reconstruction model.
+
+    This model reconstructs isotropic 3D volumes from anisotropic input data using
+    a neural implicit representation with learned latent features.
+
+    Args:
+        out_features: Number of output features (default: 1 for grayscale)
+        encoding_config: Dictionary containing encoder and network configuration
+        n_pos_enc_octaves: Number of octaves for positional encoding (default: 2)
+    """
     def __init__(self, out_features=1, encoding_config=None, n_pos_enc_octaves=2, **kwargs):
         super().__init__()
 
@@ -146,6 +156,15 @@ class NIIV(nn.Module):
         self.decoder = MLP(in_dim=model_in, out_dim=out_features, n_neurons=n_neurons, n_hidden=n_layers)
 
     def forward(self, image, coords):
+        """Forward pass through the model.
+
+        Args:
+            image: Input anisotropic image tensor
+            coords: Normalized coordinates for query points
+
+        Returns:
+            Predicted values at query coordinates (range 0-1 after sigmoid)
+        """
         latent_grid = self.encoder(image)
         features = self.grid.compute_features(image, latent_grid, coords, self.attn)
         bs, q = coords.squeeze(1).squeeze(1).shape[:2]

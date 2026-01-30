@@ -78,6 +78,15 @@ class Upsampler(nn.Sequential):
 
 
 class EDSR2D(nn.Module):
+    """2D Enhanced Deep Super-Resolution encoder.
+
+    Residual encoder network based on EDSR architecture for extracting
+    latent features from 2D image slices.
+
+    Args:
+        args: Dictionary with configuration (n_resblocks, n_features, n_colors, res_scale)
+        conv: Convolution layer constructor (default: default_conv)
+    """
     def __init__(self, args=None, conv=default_conv):
         super(EDSR2D, self).__init__()
         if args is None:

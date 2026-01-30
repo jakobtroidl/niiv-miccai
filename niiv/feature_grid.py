@@ -3,6 +3,15 @@ from niiv.util.utils import make_coord
 from niiv.decoder.pos_enc import PositionalEncoding
 
 class FeatureGrid():
+    """Feature grid processing with attention-guided latent interpolation.
+
+    Handles feature extraction and interpolation from the latent grid,
+    optionally using attention-based aggregation over local neighborhoods.
+
+    Args:
+        feat_unfold: Whether to use attention-based feature unfolding
+        n_pos_encoding: Number of octaves for positional encoding
+    """
     def __init__(self, feat_unfold, n_pos_encoding):
         self.feature_unfold = feat_unfold
         self.pos_enc = PositionalEncoding(num_octaves=n_pos_encoding)
@@ -14,7 +23,17 @@ class FeatureGrid():
         # return n_in + 2 + 1
     
     def compute_features(self, image, latents, coords, attn=None):
+        """Compute features for query coordinates from latent grid.
 
+        Args:
+            image: Input image tensor
+            latents: Latent feature grid from encoder
+            coords: Query coordinates (normalized to [-1, 1])
+            attn: Optional attention module for feature aggregation
+
+        Returns:
+            Concatenated features for query coordinates
+        """
         # interpolate feature coordinates
         feature_coords = make_coord(latents.shape[-2:], flatten=False).cuda()
         feature_coords = feature_coords.permute(2, 0, 1).unsqueeze(0)
