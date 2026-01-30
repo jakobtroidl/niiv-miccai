@@ -71,7 +71,6 @@ python experiments/eval_seq_simplified.py \
 Configuration files in the `config/` directory control model architecture and training hyperparameters:
 - `config_cvr_s.json` - Standard model configuration
 - `config_cvr_tiny.json` - Smaller model for faster training
-- `config_siren.json` - Alternative SIREN-based configuration
 
 ## Dataset Format
 
