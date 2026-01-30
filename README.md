@@ -134,8 +134,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Acknowledgments
 
 This implementation builds upon code from the following repositories:
-- [NVP](https://github.com/subin-kim-cv/NVP) - Neural Volume Prior
-- [LIIF](https://github.com/yinboc/liif) - Learning Implicit Image Functions
-- [VINR](https://github.com/Picsart-AI-Research/VideoINR-Continuous-Space-Time-Super-Resolution) - Video INR
+- [NVP](https://github.com/subin-kim-cv/NVP)
+- [LIIF](https://github.com/yinboc/liif)
+- [VINR](https://github.com/Picsart-AI-Research/VideoINR-Continuous-Space-Time-Super-Resolution)
 
 We thank the authors for making their code publicly available. Claude Code only polished the repository for release. 
