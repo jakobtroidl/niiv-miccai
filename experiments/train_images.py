@@ -43,8 +43,6 @@ with open(opt.config, 'r') as f:
 
 data_path = opt.dataset
 
-print("Data path is {}".format(data_path))
-
 # Define the model.
 model = NIIV(out_features=1, encoding_config=config["cvr"])
 model.cuda()
@@ -52,16 +50,11 @@ model.cuda()
 image_dataset = dataio.ImageDataset(path_to_info=opt.dataset)
 dataloader = DataLoader(image_dataset, shuffle=True, batch_size=opt.batch_size, num_workers=0)
 
-params = utils.get_n_params(model) # TODO update this function
+params = utils.get_n_params(model)
 
 root_path = os.path.join(opt.logging_root, opt.experiment_name)
 if not os.path.exists(root_path):
     os.makedirs(root_path, exist_ok=True)
-    # val = input("The model directory %s exists. Overwrite? (y/n)"%root_path)
-    # if val == 'y':
-    #     shutil.rmtree(root_path)
-    # else:
-    #     raise NotImplementedError("File exists Error: %s"%root_path)
 
 
 

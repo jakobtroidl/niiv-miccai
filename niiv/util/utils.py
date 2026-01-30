@@ -36,8 +36,7 @@ def cond_mkdir(path):
         os.makedirs(path)
 
 def write_volume_summary(volume_dataset, model, model_input, gt, writer, total_steps, prefix='train_'):
-    print("write_volume_summary")
-    PSNR = 0.0 # TODO
+    PSNR = 0.0
     return PSNR
 
 def min_max_summary(name, tensor, writer, total_steps):

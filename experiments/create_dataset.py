@@ -51,11 +51,7 @@ def main(args):
         if args.coord_list_path:
             x, y, z = data[i]
         else:
-            # x = np.random.randint(15_000, 21_000) # assuming x,y is the high resolution axis
-            # y = np.random.randint(15_000, 21_000)
-            # z = np.random.randint(15_000, 21_000)
             x = 3859
-            # x = np.random.randint(10_000, 100_000)
             y = np.random.randint(3_000, 7_000)
             z = np.random.randint(400, 1_200)
             
@@ -67,13 +63,9 @@ def main(args):
         if args.denoise:
             vol_denoised = denoise_tv_chambolle(vol, weight=0.1, channel_axis=-1)
             vol_denoised = np.squeeze(vol_denoised * 255.0).astype(np.uint8)
-             # save numpy array to disk
             np.save(os.path.join(output_path, "{}_{}_{}_denoised.npy".format(x, y, z)), vol_denoised)
         else:
-            # save numpy array to disk   
             vol = np.squeeze(vol)
-
-            # interpolate F to shape of [128, 128, 128]
             vol = vol.astype(np.float32)
             vol = vol / 255.0
             vol = torch.from_numpy(vol).unsqueeze(0).unsqueeze(0)
@@ -90,7 +82,6 @@ if __name__ == "__main__":
     parser.add_argument('--name', type=str, help='Name of dataset', required=True)
     parser.add_argument('--path', type=str, help='Path to ng precomputed file', required=True)
     parser.add_argument('--train', action="store_true", help='Whether to download training or test images')
-    # parser.add_argument('--anistropic_dim', type=int, help='Which dimension is anistropic. 0-->x, 1-->, 2-->z', default=2, required=True)
     parser.add_argument('--image_size', type=int, help='Pixel size of dataset images', default=128, required=True)
     parser.add_argument('--denoise', action="store_true", help='Whether to apply variation denoising (TV)')
     parser.add_argument('--coord_list_path', type=str, help='List of 3D coordinates that contain volume centers', default=None, required=False)

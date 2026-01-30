@@ -6,8 +6,6 @@ sys.path.append( os.path.dirname( os.path.dirname( os.path.abspath(__file__) ) )
 import dataio
 import configargparse
 import torch
-
-import configargparse
 from pynvml import *
 import json
 import numpy as np

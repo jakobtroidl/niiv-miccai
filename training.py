@@ -16,7 +16,6 @@ def train(model, train_dataloader, epochs, lr, steps_til_summary, epochs_til_che
     scheduler = torch.optim.lr_scheduler.MultiStepLR(optim, milestones=[2000, 4000, 6000, 8000], gamma=0.5)
 
     total_loss_avg = utils.Averager()
-    # avg_pool = torch.nn.AvgPool2d(kernel_size=[1, int(7.5)]) 
     gradient_regularizer = regularizer.GradientRegularizer()
 
     summaries_dir = os.path.join(model_dir, 'summaries')
@@ -53,9 +52,6 @@ def train(model, train_dataloader, epochs, lr, steps_til_summary, epochs_til_che
 
             mse = mse_loss(xy_output, xy_gt)
 
-            # grad_reg = gradient_regularizer(xy_output, epoch, step, weight=1.0)
-            # epoch_weight = torch.sigmoid(0.5 * torch.tensor(epoch) - 70).item() # weight the gradient regularizer less at the beginning of training
-
             xy_out_normed =  (xy_output.unsqueeze(1) * 2 - 1)
             xy_gt_normed = (xy_gt.unsqueeze(1) * 2 - 1)
 
@@ -64,9 +60,8 @@ def train(model, train_dataloader, epochs, lr, steps_til_summary, epochs_til_che
 
             perc_loss = lpips_loss.forward(xy_out_rgb, xy_gt_rgb).mean()
 
-            dists_loss = D(xy_output.unsqueeze(1), xy_gt.unsqueeze(1), require_grad=True, batch_average=True) 
+            dists_loss = D(xy_output.unsqueeze(1), xy_gt.unsqueeze(1), require_grad=True, batch_average=True)
             mae = mae_loss(xy_output, xy_gt)
-            # total_loss = 30 * mae + dists_loss
             total_loss = mae
             total_loss_avg.add(total_loss.item())
 
@@ -88,7 +83,6 @@ def train(model, train_dataloader, epochs, lr, steps_til_summary, epochs_til_che
                                     }, os.path.join(checkpoints_dir, 'model_latest.pth'))
 
             total_steps += 1
-            # train_dataloader.dataset.shuffle_x_or_y()
 
         scheduler.step()
 
