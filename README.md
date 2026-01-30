@@ -38,6 +38,8 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
+5. Download data [here](https://drive.google.com/file/d/1N4dtugXNeIoFHY6CCw09_88QAFCdIUcL/view?usp=sharing).
+
 ## Usage
 
 ### Training
@@ -136,4 +138,4 @@ This implementation builds upon code from the following repositories:
 - [LIIF](https://github.com/yinboc/liif) - Learning Implicit Image Functions
 - [VINR](https://github.com/Picsart-AI-Research/VideoINR-Continuous-Space-Time-Super-Resolution) - Video INR
 
-We thank the authors for making their code publicly available. Claude Code supported the GitHub release and polished the repository for release. 
+We thank the authors for making their code publicly available. Claude Code only polished the repository for release. 
