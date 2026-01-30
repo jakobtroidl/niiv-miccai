@@ -90,22 +90,6 @@ data/
         └── ...
 ```
 
-### info.json Format
-
-The `info.json` file should contain dataset metadata:
-
-```json
-{
-  "train_path": "data/your_dataset/train",
-  "test_path": "data/your_dataset/test",
-  "resolution": [8, 1, 1],
-  "image_size": 128
-}
-```
-
-### Volume Format
-
-Each `.npy` file should contain a 3D numpy array of shape `(D, H, W)` with dtype `uint8` (0-255 range).
 
 ## Project Structure
 
