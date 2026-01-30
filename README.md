@@ -153,4 +153,4 @@ This implementation builds upon code from the following repositories:
 - [LIIF](https://github.com/yinboc/liif) - Learning Implicit Image Functions
 - [VINR](https://github.com/Picsart-AI-Research/VideoINR-Continuous-Space-Time-Super-Resolution) - Video INR
 
-We thank the authors for making their code publicly available.
+We thank the authors for making their code publicly available. Claude Code supported the GitHub release and polished the repository for release. 
