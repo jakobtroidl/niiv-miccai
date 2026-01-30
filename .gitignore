@@ -13,3 +13,21 @@ niiv.egg-info/**
 build/**
 data/hemibrain-volume-noisy-large/**
 
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Weights & Biases
+wandb/
+
+# Python
+*.egg-info/
+__pycache__/
+*.py[cod]
+*$py.class
+
