@@ -1,0 +1,15 @@
+*.zip
+events*
+logs/**
+*.pth
+data/**
+__pycache__/**
+*.pyc
+playground/**
+histograms/**
+*.png
+dist/**
+niiv.egg-info/**
+build/**
+data/hemibrain-volume-noisy-large/**
+

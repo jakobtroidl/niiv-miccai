@@ -1,0 +1,17 @@
+{"time":"2026-01-30T01:01:08.817923711Z","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/groups/troidl/home/troidlj/niiv-miccai/wandb/run-20260130_010108-717nz6q5/logs/debug-core.log"}
+{"time":"2026-01-30T01:01:08.925641837Z","level":"INFO","msg":"created new stream","id":"717nz6q5"}
+{"time":"2026-01-30T01:01:08.925664181Z","level":"INFO","msg":"stream: started","id":"717nz6q5"}
+{"time":"2026-01-30T01:01:08.925709229Z","level":"INFO","msg":"writer: Do: started","stream_id":"717nz6q5"}
+{"time":"2026-01-30T01:01:08.925728067Z","level":"INFO","msg":"handler: started","stream_id":"717nz6q5"}
+{"time":"2026-01-30T01:01:08.925723761Z","level":"INFO","msg":"sender: started","stream_id":"717nz6q5"}
+{"time":"2026-01-30T01:01:08.983137196Z","level":"ERROR","msg":"HTTP error","status":401,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2026-01-30T01:01:08.983174111Z","level":"ERROR","msg":"sender: upsertRun:","error":"failed to upsert bucket: returned error 401 Unauthorized: {\"errors\":[{\"message\":\"user is not logged in\",\"path\":[\"upsertBucket\"],\"extensions\":{\"code\":\"PERMISSION_ERROR\"}}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2026-01-30T01:01:08.991114095Z","level":"INFO","msg":"stream: closing","id":"717nz6q5"}
+{"time":"2026-01-30T01:01:08.991204701Z","level":"ERROR","msg":"sender: upsertConfig: RunRecord is nil"}
+{"time":"2026-01-30T01:01:09.099281708Z","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2026-01-30T01:01:09.099299194Z","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: returned error 404 Not Found: {\"errors\":[{\"message\":\"project /continuous-volumes not found during createRunFiles\",\"path\":[\"createRunFiles\"]}],\"data\":{\"createRunFiles\":null}}"}
+{"time":"2026-01-30T01:01:09.101574797Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-01-30T01:01:09.101598273Z","level":"INFO","msg":"handler: closed","stream_id":"717nz6q5"}
+{"time":"2026-01-30T01:01:09.101606435Z","level":"INFO","msg":"writer: Close: closed","stream_id":"717nz6q5"}
+{"time":"2026-01-30T01:01:09.101622409Z","level":"INFO","msg":"sender: closed","stream_id":"717nz6q5"}
+{"time":"2026-01-30T01:01:09.104230603Z","level":"INFO","msg":"stream: closed","id":"717nz6q5"}
